@@ -318,6 +318,50 @@
                 </div>
             </div>
 
+            <!-- Proje 8: 2D İnteraktif Sürüş ve Kontrol Simülatörü -->
+            <div class="glass-panel simulation-section">
+                <div class="section-header">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--primary-color);">8. 2D İnteraktif Sürüş ve Kontrol Simülatörü</h3>
+                    <p style="margin-bottom: 1.2rem; color: #ccd6f6;">2D su akıntısı ve rüzgar sürüklenmesi (drift) bulunan ortamlarda, insansız deniz araçlarının (İDA / USV) belirlenen rotayı minimum sapma ile takip etmesini, engellerden kaçıp rotaya yumuşak biçimde geri dönmesini sağlayan etkileşimli bir simülatördür.</p>
+
+                    <div style="margin-bottom: 1rem; color: var(--text-muted);">
+                        <h4 style="color: #ccd6f6; margin-bottom: 0.5rem;">Vektörel Crab Angle (Yan Kayma) Kompanzasyonu</h4>
+                        <p style="margin-bottom: 0.6rem;">Akıntının aracı yana itmesini engellemek için gerekli pruva açısını anlık hesaplar:</p>
+                        <pre style="background: rgba(0,0,0,0.25); padding: 0.8rem; border-radius:6px; color: #e6eef8; overflow:auto;">$$\beta = \arcsin\left( \frac{V_c}{v} \sin(\theta_c - \theta_{target}) \right)\\
+$$
+$$\psi_{des} = \theta_{target} - \beta$$</pre>
+                    </div>
+
+                    <div style="margin-bottom: 1rem; color: var(--text-muted);">
+                        <h4 style="color: #ccd6f6; margin-bottom: 0.5rem;">Pure Pursuit + PID Hibrit Rota Takibi</h4>
+                        <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                            <li style="margin-bottom: 0.4rem;"><b>Pure Pursuit:</b> L_d bakış mesafesi ile rota geometrisine yönelir.</li>
+                            <li style="margin-bottom: 0.4rem;"><b>PID (e_{ct}):</b> Cross-Track Error sapmasını sıfırlayarak sürekli halde hattı korur.</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 1rem; color: var(--text-muted);">
+                        <h4 style="color: #ccd6f6; margin-bottom: 0.5rem;">Engelden Kaçış & Rotaya Otomatik Geri Dönüş (Escape Protocol)</h4>
+                        <p style="margin-bottom: 0.6rem;">Engelle karşılaşıldığında Yapay Potansiyel Alan (APF) ve COLREG (sağ manevra) kurallarına göre engelden sakınır. Engel geçildiğinde Cross-Track PID aracı yumuşak bir eğri ile orijinal rotaya geri döndürür.</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem; color: var(--text-muted);">
+                        <h4 style="color: #ccd6f6; margin-bottom: 0.5rem;">İnteraktif Pygame Dashboard</h4>
+                        <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                            <li style="margin-bottom: 0.4rem;"><b>Canlı sliderlar:</b> K_p, K_i, K_d, L_d, V_c, θ_c değerleri anlık sürüklenebilir kontrol panelleri.</li>
+                            <li style="margin-bottom: 0.4rem;"><b>Waypoint & Engel Düzenleme:</b> Tıklayarak waypoint ve engel ekleme/modifiye etme.</li>
+                            <li style="margin-bottom: 0.4rem;"><b>Canlı Vektör Görselleştirme:</b> Hız vektörleri (\vec{V}_w, \vec{V}_c, \vec{V}_g) canlı ok çizimleri ile gösterilir.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="2d_drift_sim.png" alt="2D Drift Sim" class="patern-img" style="max-width: 100%; border-radius: 8px;">
+                        <p class="img-caption">2D Sürüklenme & Rota Takip Simülasyonu (Pygame Dashboard önizlemesi)</p>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- İLETİŞİM SEKMESİ -->
